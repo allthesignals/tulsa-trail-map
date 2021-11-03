@@ -1,7 +1,40 @@
 {{page-title "TulsaTrailMap"}}
 
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
+<div class="absolute top-0 w-full bg-green-400 z-50">
+  <div class="container mx-auto">
+    <h1>Tulsa Trail Map</h1>
+    <label for="proposed">Show Proposed Trails</label>
+    <Input name="proposed" @type="checkbox" @checked={{this.proposed}}/>
+  </div>
+</div>
 
-{{outlet}}
+<MapboxGl
+  @initOptions={{hash hash=true}}
+  class='map-container' as |map|
+>
+  <map.source
+    @options={{hash
+      type='geojson'
+      data='https://map8.incog.org/arcgis8wa/rest/services/Trails_existing/FeatureServer/0/query?f=geojson&where=1=1&outFields=TYPE'
+    }} as |source|
+  >
+    <source.layer
+      @layer={{this.trailStyle}}
+    />
+  </map.source>
+
+  {{!-- Proposed trails --}}
+
+  <map.source
+    @options={{hash
+      type='geojson'
+      data='https://map8.incog.org/arcgis8wa/rest/services/Trails_GOPlan/FeatureServer/0/query?f=geojson&where=1=1&outFields=Fac_Catego'
+    }} as |source|
+  >
+    {{#if this.proposed}}
+      <source.layer
+        @layer={{this.proposedTrails}}
+      />
+    {{/if}}
+  </map.source>
+</MapboxGl>
