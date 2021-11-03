@@ -1,12 +1,19 @@
 {{page-title "TulsaTrailMap"}}
 
-<div class="absolute top-0 w-full bg-green-400 z-50">
+<div class="absolute top-0 w-full bg-national-flag-blue border-b-8 border-mustard z-50 p-4 shadow-md">
   <div class="container mx-auto">
-    <h1>Tulsa Trail Map</h1>
-    <label for="proposed">Show Proposed Trails</label>
-    <Input name="proposed" @type="checkbox" @checked={{this.proposed}}/>
+    <h1 class="text-mustard">Tulsa Trailmap</h1>
+    <img
+      src="/images/tulsa-flag-sigil.png"
+      class="w-20 absolute"
+    />
   </div>
 </div>
+
+{{!-- <h4 class="text-bone">
+  <label for="proposed">Show Proposed Trails</label>
+  <Input name="proposed" @type="checkbox" @checked={{this.proposed}}/>
+</h4> --}}
 
 <MapboxGl
   @initOptions={{hash hash=true}}

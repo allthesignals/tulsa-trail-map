@@ -1,6 +1,18 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+h1 {
+  @apply text-2xl;
+  @apply uppercase;
+  @apply font-extrabold;
+}
+
+h4 {
+  @apply text-xs;
+}
 
 html, body {
   margin: 0;
