@@ -3,22 +3,22 @@ import Controller from '@ember/controller';
 const TRAIL_TYPES = [
   [
     'Bike Lane',
-    'purple',
+    '#162B49',
   ],[
     'Buffered Bike Lane',
-    'darkgreen',
+    '#EBAD21',
   ],[
     'Sharrow',
-    'lightblue',
+    '#C6202E',
   ],[
     'Signed Route',
-    'yellow',
+    '#E18A89',
   ],[
     'Multi-Use Trail',
-    'red',
+    '#DFC2A5',
   ],[
     'Unpaved Trail',
-    'green',
+    '#ECAE1D',
   ],
 ];
 
@@ -28,7 +28,7 @@ const EXISTING_TRAILS_PAINT = {
     type: 'categorical',
     stops: [...TRAIL_TYPES],
   },
-  'line-width': 1.5,
+  'line-width': 3,
 };
 
 export default class ApplicationController extends Controller {
