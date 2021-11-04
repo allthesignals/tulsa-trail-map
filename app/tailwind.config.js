@@ -10,11 +10,11 @@ module.exports = {
         'bright-red': '#C6202E',
       },
       borderWidth: {
-        '10': '10px',
-        '12': '12px',
+        10: '10px',
+        12: '12px',
       },
       margin: {
-        '22': '5.5rem',
+        22: '5.5rem',
       },
     },
   },
@@ -22,4 +22,4 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-}
+};

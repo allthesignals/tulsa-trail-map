@@ -13,7 +13,7 @@
   <div class="absolute p-4 w-1/5 m-4 shadow-md bg-opacity-95 bg-bone right-0">
     Legend
     <ul>
-      {{#each this.TRAIL_TYPES as |trailType|}}
+      {{#each this.CONSTANTS.TRAIL_TYPES as |trailType|}}
         <li class="p-1">
           <div
             class="mr-1 float-left rounded-full w-4 h-4"
@@ -32,18 +32,26 @@
 
 <MapboxGl
   @initOptions={{hash hash=true}}
-  @mapLoaded={{this.onMapLoad}}
   class='map-container' as |map|
 >
   <map.source
     @options={{hash
       type='geojson'
-      data='https://map8.incog.org/arcgis8wa/rest/services/Trails_existing/FeatureServer/0/query?f=geojson&where=1=1&outFields=TYPE'
+      data=this.CONSTANTS.EXISTING_TRAILS_URL
     }} as |source|
   >
     <source.layer
       @layer={{this.trailStyle}}
-    />
+      as |layer|
+    >
+      <HoverableLayer
+        @map={{map}}
+        @layerId={{layer.id}}
+        @sourceId={{source.id}} as |hovered|
+      >
+        Hi {{hovered.id}}
+      </HoverableLayer>
+    </source.layer>
   </map.source>
 
   {{!-- Proposed trails --}}
@@ -51,7 +59,7 @@
   <map.source
     @options={{hash
       type='geojson'
-      data='https://map8.incog.org/arcgis8wa/rest/services/Trails_GOPlan/FeatureServer/0/query?f=geojson&where=1=1&outFields=Fac_Catego'
+      data=this.CONSTANTS.PROPOSED_TRAILS_URL
     }} as |source|
   >
     {{#if this.proposed}}

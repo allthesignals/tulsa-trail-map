@@ -28,7 +28,7 @@ module.exports = function (environment) {
       map: {
         style: 'mapbox://styles/mapbox/light-v10',
         zoom: 13,
-        center: [-95.98378, 36.14139],
+        center: [-95.96554, 36.15052],
       },
       marker: {
         offset: [-1, -1],

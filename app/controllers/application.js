@@ -1,4 +1,5 @@
 import Controller from '@ember/controller';
+import { action } from '@ember/object';
 
 const TRAIL_TYPES = [
   [
@@ -31,15 +32,21 @@ const EXISTING_TRAILS_PAINT = {
   'line-width': 3,
 };
 
+const EXISTING_TRAILS_URL = "https://map8.incog.org/arcgis8wa/rest/services/Trails_existing/FeatureServer/0/query?f=geojson&where=1=1&outFields=TYPE,OBJECTID"
+const PROPOSED_TRAILS_URL = "https://map8.incog.org/arcgis8wa/rest/services/Trails_GOPlan/FeatureServer/0/query?f=geojson&where=1=1&outFields=Fac_Catego"
+
 export default class ApplicationController extends Controller {
-  TRAIL_TYPES = TRAIL_TYPES;
+  CONSTANTS = {
+    EXISTING_TRAILS_URL,
+    PROPOSED_TRAILS_URL,
+    TRAIL_TYPES
+  }
 
   queryParams = ['proposed'];
 
   proposed = true;
 
   trailStyle = {
-    id: 'trails',
     type:'line',
     paint: {
       ...EXISTING_TRAILS_PAINT,
@@ -53,32 +60,4 @@ export default class ApplicationController extends Controller {
       'line-width': 2,
     }
   };
-
-  onMapLoad(map) {
-    // this.setupHoverEffects(map);
-  }
-
-  // setupHoverEffects(map) {
-  //   map.on('mousemove', 'state-fills', (e) => {
-  //     if (e.features.length > 0) {
-  //       if (hoveredStateId !== null) {
-  //         map.setFeatureState({ source: 'states', id: hoveredStateId }, { hover: false });
-  //       }
-
-  //       hoveredStateId = e.features[0].id;
-
-  //       map.setFeatureState({ source: 'states', id: hoveredStateId }, { hover: true });
-  //     }
-  //   });
-
-  //   map.on('mouseleave', 'state-fills', () => {
-  //     if (hoveredStateId !== null) {
-  //     map.setFeatureState(
-  //     { source: 'states', id: hoveredStateId },
-  //     { hover: false }
-  //     );
-  //     }
-  //     hoveredStateId = null;
-  //   });
-  // }
 }
