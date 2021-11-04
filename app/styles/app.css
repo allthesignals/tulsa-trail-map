@@ -6,8 +6,6 @@
 
 h1 {
   @apply text-2xl;
-  @apply uppercase;
-  @apply font-extrabold;
 }
 
 h4 {
