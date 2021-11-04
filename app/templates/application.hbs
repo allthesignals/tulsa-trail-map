@@ -23,13 +23,12 @@
         </li>
       {{/each}}
     </ul>
+    <h4>
+      <label for="proposed">Show Proposed Trails</label>
+      <Input name="proposed" @type="checkbox" @checked={{this.proposed}}/>
+    </h4>
   </div>
 </div>
-
-{{!-- <h4 class="text-bone">
-  <label for="proposed">Show Proposed Trails</label>
-  <Input name="proposed" @type="checkbox" @checked={{this.proposed}}/>
-</h4> --}}
 
 <MapboxGl
   @initOptions={{hash hash=true}}

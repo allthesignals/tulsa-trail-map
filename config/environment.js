@@ -26,7 +26,7 @@ module.exports = function (environment) {
       accessToken:
         'pk.eyJ1Ijoid21hdHRnYXJkbmVyIiwiYSI6ImNrdmJvZHlobmFwZHEycG1hMndtNHd0Y2MifQ.JWKGif2DQFgXI4EAvzEVTA',
       map: {
-        style: 'mapbox://styles/wmattgardner/ckvhfxgjg1bzj14mtgfjbwif4',
+        style: 'mapbox://styles/mapbox/light-v10',
         zoom: 13,
         center: [-95.98378, 36.14139],
       },

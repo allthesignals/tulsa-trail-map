@@ -49,7 +49,7 @@ export default class ApplicationController extends Controller {
     type: 'line',
     paint: {
       ...EXISTING_TRAILS_PAINT,
-      'line-dasharray': [3, 3]
+      'line-width': 2,
     }
   };
 }
