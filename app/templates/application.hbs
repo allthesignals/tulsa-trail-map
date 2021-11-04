@@ -32,6 +32,7 @@
 
 <MapboxGl
   @initOptions={{hash hash=true}}
+  @mapLoaded={{this.onMapLoad}}
   class='map-container' as |map|
 >
   <map.source
