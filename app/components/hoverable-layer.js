@@ -8,7 +8,7 @@ const HOVERED_PAINT_STYLE = {
     'case',
     ['boolean', ['feature-state', HOVERED], false],
     1,
-    0.5
+    0.5,
   ],
 };
 
@@ -16,7 +16,10 @@ export default class HoverableLayerComponent extends Component {
   constructor(...args) {
     super(...args);
 
-    const { map: { instance: map }, layerId } = this.args;
+    const {
+      map: { instance: map },
+      layerId,
+    } = this.args;
 
     Object.entries(HOVERED_PAINT_STYLE).forEach(([prop, value]) => {
       map.setPaintProperty(layerId, prop, value);
@@ -38,12 +41,18 @@ export default class HoverableLayerComponent extends Component {
 
       // reset the previously hovered feature to false
       if (this.hoveredFeature !== null) {
-        map.setFeatureState({ source: this.args.sourceId, id: this.hoveredFeature.id }, { [HOVERED]: false });
+        map.setFeatureState(
+          { source: this.args.sourceId, id: this.hoveredFeature.id },
+          { [HOVERED]: false }
+        );
       }
 
       this.hoveredFeature = e.features[0];
 
-      map.setFeatureState({ source: this.args.sourceId, id: this.hoveredFeature.id }, { [HOVERED]: true });
+      map.setFeatureState(
+        { source: this.args.sourceId, id: this.hoveredFeature.id },
+        { [HOVERED]: true }
+      );
 
       map.getCanvas().style.cursor = 'pointer';
     }
@@ -54,7 +63,10 @@ export default class HoverableLayerComponent extends Component {
     const { instance: map } = this.args.map;
 
     if (this.hoveredFeature !== null) {
-      map.setFeatureState({ source: this.args.sourceId, id: this.hoveredFeature.id }, { [HOVERED]: false });
+      map.setFeatureState(
+        { source: this.args.sourceId, id: this.hoveredFeature.id },
+        { [HOVERED]: false }
+      );
     }
 
     this.currentPoint = null;
@@ -67,4 +79,4 @@ export default class HoverableLayerComponent extends Component {
 
 const hasFeatures = (features) => {
   return features.length > 0;
-}
+};

@@ -1,0 +1,18 @@
+<div class="m-4 p-4 bg-bone" ...attributes>
+  Legend
+  <ul>
+    {{#each (get-mapbox-layer 'existing-trails.paint.line-color.stops') as |trailType|}}
+      <li class="p-1">
+        <div
+          class="mr-1 float-left rounded-full w-4 h-4"
+          style="background-color: {{trailType.[1]}};"
+        ></div>
+        <h4>{{trailType.[0]}}</h4>
+      </li>
+    {{/each}}
+  </ul>
+  <h4>
+    <label for="proposed">Show Proposed Trails</label>
+    <Input name="proposed" @type="checkbox" @checked={{this.proposed}}/>
+  </h4>
+</div>
