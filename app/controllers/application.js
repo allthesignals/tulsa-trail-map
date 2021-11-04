@@ -18,7 +18,7 @@ const TRAIL_TYPES = [
     '#DFC2A5',
   ],[
     'Unpaved Trail',
-    '#ECAE1D',
+    '#DDF9C1',
   ],
 ];
 

@@ -1,8 +1,8 @@
 @tailwind base;
 
 h1 {
-  @apply text-xl;
-  @apply font-extralight;
+  @apply text-3xl;
+  @apply font-thin;
 }
 
 h4 {

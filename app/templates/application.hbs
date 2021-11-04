@@ -1,12 +1,28 @@
 {{page-title "TulsaTrailMap"}}
 
-<div class="absolute top-0 w-full bg-national-flag-blue border-b-12 border-mustard z-50 p-3 shadow-md">
-  <div class="container mx-auto">
-    <img
-      src="/images/tulsa-flag-sigil.png"
-      class="w-20 absolute"
-    />
-    <h1 class="text-mustard ml-22">Tulsa Trail Map</h1>
+<div class="absolute top-0 w-full z-50">
+  <div class="bg-national-flag-blue border-b-12 border-mustard p-2 shadow-md">
+    <div class="container mx-auto">
+      <img
+        src="/images/tulsa-flag-sigil.png"
+        class="w-20 absolute"
+      />
+      <h1 class="text-bone ml-22">Tulsa Trail Map</h1>
+    </div>
+  </div>
+  <div class="absolute p-4 w-1/5 m-4 shadow-md bg-opacity-95 bg-bone right-0">
+    Legend
+    <ul>
+      {{#each this.TRAIL_TYPES as |trailType|}}
+        <li class="p-1">
+          <div
+            class="mr-1 float-left rounded-full w-4 h-4"
+            style="background-color: {{trailType.[1]}};"
+          ></div>
+          <h4>{{trailType.[0]}}</h4>
+        </li>
+      {{/each}}
+    </ul>
   </div>
 </div>
 
