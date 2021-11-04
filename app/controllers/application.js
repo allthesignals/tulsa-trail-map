@@ -10,13 +10,13 @@ const TRAIL_TYPES = [
     '#EBAD21',
   ],[
     'Sharrow',
-    '#C6202E',
+    '#DFC2A5',
   ],[
     'Signed Route',
     '#E18A89',
   ],[
     'Multi-Use Trail',
-    '#DFC2A5',
+    '#C6202E',
   ],[
     'Unpaved Trail',
     '#DDF9C1',
