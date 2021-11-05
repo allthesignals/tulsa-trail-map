@@ -10,9 +10,13 @@
         <h4>{{trailType.[0]}}</h4>
       </li>
     {{/each}}
+    <li class="p-1">
+      <div
+        class="mr-1 float-left rounded-full w-4 h-4"
+        style="background-color: black;"
+      ></div>
+      <h4>Closed / Detour</h4>
+    </li>
   </ul>
-  <h4>
-    <label for="proposed">Show Proposed Trails</label>
-    <Input name="proposed" @type="checkbox" @checked={{this.proposed}}/>
-  </h4>
+  {{yield}}
 </div>

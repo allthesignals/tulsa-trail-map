@@ -5380,9 +5380,9 @@ ember-load-initializers@^2.1.2:
     ember-cli-babel "^7.13.0"
     ember-cli-typescript "^2.0.2"
 
-ember-mapbox-gl@allthesignals/ember-mapbox-gl#110-yield-source-layer-ids:
-  version "1.0.1"
-  resolved "https://codeload.github.com/allthesignals/ember-mapbox-gl/tar.gz/7f86e04146a64d6b1d0f64320e81ca2472349ce4"
+ember-mapbox-gl@kturney/ember-mapbox-gl:
+  version "1.2.0"
+  resolved "https://codeload.github.com/kturney/ember-mapbox-gl/tar.gz/d1b6063a55e7a57227f188d6b72fa8ec650120c2"
   dependencies:
     ember-auto-import "^1.6.0"
     ember-cli-babel "^7.22.1"
