@@ -2,9 +2,9 @@ const TRAIL_TYPES = [
   ['Multi-Use Trail', '#C6202E'],
   ['Bike Lane', '#EBAD21'],
   ['Buffered Bike Lane', '#EBAD21'],
-  ['Unpaved Trail', '#162B49'],
+  ['Unpaved Trail', 'green'],
   ['Sharrow', '#DFC2A5'],
-  ['Signed Route', 'green'],
+  ['Signed Route', '#162B49'],
 ];
 
 const EXISTING_TRAILS_PAINT = {
@@ -13,7 +13,7 @@ const EXISTING_TRAILS_PAINT = {
     type: 'categorical',
     stops: [...TRAIL_TYPES],
   },
-  'line-width': 2,
+  'line-width': 2.5,
 };
 
 export default {
@@ -27,20 +27,23 @@ export default {
     type: 'line',
     paint: {
       ...EXISTING_TRAILS_PAINT,
-      'line-width': 2,
+      'line-width': EXISTING_TRAILS_PAINT['line-width'] - 1,
     },
   },
   'closed-trails': {
     type: 'line',
     paint: {
       'line-color': 'black',
-      'line-width': EXISTING_TRAILS_PAINT['line-width'] + 1,
+      'line-width': EXISTING_TRAILS_PAINT['line-width'] + 3,
+      'line-dasharray': [1, 1],
     },
   },
-  'detours': {
+  detours: {
     type: 'line',
     paint: {
-      'line-color': 'black',
+      'line-width': EXISTING_TRAILS_PAINT['line-width'] + 3,
+      'line-color': 'green',
+      'line-dasharray': [1, 1],
     },
   },
 };

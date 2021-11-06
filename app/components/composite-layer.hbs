@@ -1,0 +1,18 @@
+<@map.source
+  @options={{get-mapbox-source @sourceId}} as |source|
+>
+  <source.layer
+    @layer={{get-mapbox-layer (or @layerId @sourceId)}}
+    as |layer|
+  >
+    {{yield (hash
+      layer=layer
+      source=source
+      tooltip=(component 'hoverable-layer'
+        map=@map
+        layerId=layer.id
+        sourceId=source.id
+      ))
+    }}
+  </source.layer>
+</@map.source>

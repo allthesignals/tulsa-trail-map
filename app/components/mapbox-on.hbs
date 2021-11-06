@@ -1,0 +1,11 @@
+{{#if @layerId}}
+  <@map.on @event={{@event}} @layerId={{@layerId}} @action={{this.callback}} />
+{{else}}
+  <@map.on @event={{@event}} @action={{this.callback}} />
+{{/if}}
+
+{{#if (has-block)}}
+  {{!-- {{#if this.callbackEvent}} --}}
+    {{yield this.callbackEvent}}
+  {{!-- {{/if}} --}}
+{{/if}}

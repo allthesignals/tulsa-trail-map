@@ -1,63 +1,32 @@
 {{page-title "TulsaTrailMap"}}
 
-<div class="absolute top-0 w-full z-50">
+<div class="absolute top-0 w-full z-10">
   <Header />
-  <Legend class="absolute right-0 w-1/5 bg-opacity-95 shadow-md">
-    <h4>
-      <label for="proposed">Show Proposed Trails</label>
-      <Input name="proposed" @type="checkbox" @checked={{this.proposed}}/>
-    </h4>
-  </Legend>
+  <Legend class="absolute right-0 bg-opacity-95 shadow-md" />
 </div>
 
 <MapboxGl
   @initOptions={{hash hash=true}}
   class='map-container' as |map|
 >
-  <map.source
-    @options={{get-mapbox-source 'closed-trails'}} as |source|
+  <CompositeLayer
+    @map={{map}}
+    @sourceId='existing-trails'
+    as |trails|
   >
-    <source.layer
-      @layer={{get-mapbox-layer 'closed-trails'}}
-      as |layer|
-    >
-    </source.layer>
-  </map.source>
+    <trails.tooltip as |feature|>
+      <h3>{{feature.properties.NAME}}</h3>
+      <span>{{feature.properties.TYPE}}</span>
+    </trails.tooltip>
+  </CompositeLayer>
 
-  <map.source
-    @options={{get-mapbox-source 'detours'}} as |source|
-  >
-    <source.layer
-      @layer={{get-mapbox-layer 'detours'}}
-      as |layer|
-    >
-    </source.layer>
-  </map.source>
+  <CompositeLayer
+    @map={{map}}
+    @sourceId='closed-trails'
+  />
 
-  <map.source
-    @options={{get-mapbox-source 'existing-trails'}} as |source|
-  >
-    <source.layer
-      @layer={{get-mapbox-layer 'existing-trails'}}
-      as |layer|
-    >
-      <HoverableLayer
-        @map={{map}}
-        @layerId={{layer.id}}
-        @sourceId={{source.id}} as |hovered|
-      >
-        Hi {{hovered.id}}
-      </HoverableLayer>
-    </source.layer>
-  </map.source>
-
-  <map.source
-    @options={{get-mapbox-source 'proposed-trails'}} as |source|
-  >
-    {{#if this.proposed}}
-      <source.layer
-        @layer={{get-mapbox-layer 'proposed-trails'}}
-      />
-    {{/if}}
-  </map.source>
+  <CompositeLayer
+    @map={{map}}
+    @sourceId='detours'
+  />
 </MapboxGl>

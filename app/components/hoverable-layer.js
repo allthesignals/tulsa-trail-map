@@ -1,14 +1,15 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import layers from '../utils/map-layers';
 
 const HOVERED = '__hover__';
 const HOVERED_PAINT_STYLE = {
-  'line-opacity': [
+  'line-width': [
     'case',
     ['boolean', ['feature-state', HOVERED], false],
-    1,
-    0.5,
+    layers['existing-trails'].paint['line-width'] * 2,
+    layers['existing-trails'].paint['line-width'],
   ],
 };
 
@@ -27,9 +28,6 @@ export default class HoverableLayerComponent extends Component {
   }
 
   @tracked
-  currentPoint = null;
-
-  @tracked
   hoveredFeature = null;
 
   @action
@@ -37,8 +35,6 @@ export default class HoverableLayerComponent extends Component {
     const { instance: map } = this.args.map;
 
     if (hasFeatures(e.features)) {
-      this.currentPoint = e.point;
-
       // reset the previously hovered feature to false
       if (this.hoveredFeature !== null) {
         map.setFeatureState(
@@ -68,8 +64,6 @@ export default class HoverableLayerComponent extends Component {
         { [HOVERED]: false }
       );
     }
-
-    this.currentPoint = null;
 
     this.hoveredFeature = null;
 

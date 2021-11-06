@@ -4,18 +4,28 @@
     {{#each (get-mapbox-layer 'existing-trails.paint.line-color.stops') as |trailType|}}
       <li class="p-1">
         <div
-          class="mr-1 float-left rounded-full w-4 h-4"
-          style="background-color: {{trailType.[1]}};"
-        ></div>
+          class="mr-1 float-left"
+        >
+          <Legend::Line stroke={{trailType.[1]}}/>
+        </div>
         <h4>{{trailType.[0]}}</h4>
       </li>
     {{/each}}
     <li class="p-1">
       <div
-        class="mr-1 float-left rounded-full w-4 h-4"
-        style="background-color: black;"
-      ></div>
-      <h4>Closed / Detour</h4>
+        class="mr-1 float-left"
+      >
+        <Legend::Line stroke-dasharray='20' />
+      </div>
+      <h4>Closed</h4>
+    </li>
+    <li class="p-1">
+      <div
+        class="mr-1 float-left"
+      >
+        <Legend::Line stroke="green" stroke-dasharray='20' />
+      </div>
+      <h4>Detour</h4>
     </li>
   </ul>
   {{yield}}

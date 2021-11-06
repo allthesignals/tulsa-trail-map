@@ -1,5 +1,13 @@
-<@map.on @event='mousemove' @layerId={{@layerId}} @action={{this.onLayerHover}}/>
+<MapboxOn @map={{@map}} @event='mouseenter' @layerId={{@layerId}} @action={{this.onLayerHover}} as |mousemove|>
+  <MapboxOn @map={{@map}} @event='mouseleave' @layerId={{@layerId}} @action={{this.onLayerMouseOut}} />
 
-<@map.on @event='mouseleave' @layerId={{@layerId}} @action={{this.onLayerMouseOut}}/>
-
-{{!-- {{yield this.hoveredFeature}} --}}
+  {{#if this.hoveredFeature}}
+    <div
+      class="absolute z-20 bg-bone m-4 p-4"
+      style="left: {{mousemove.point.x}}px; top: {{mousemove.point.y}}px"
+      ...attributes
+    >
+      {{yield this.hoveredFeature}}
+    </div>
+  {{/if}}
+</MapboxOn>
