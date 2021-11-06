@@ -1,0 +1,34 @@
+{{!-- Possible bug: These don't work because the popup closes when it needs to reopen --}}
+
+{{!-- <map.on
+  @event='click'
+  @action={{fn (mut this.clicked)}}
+/>
+
+{{#if this.clicked}}
+  {{#map.popup
+    lngLat=this.clicked.lngLat
+    onClose=this.onClose
+    as |popup|
+  }}
+    Hi
+  {{/map.popup}}
+{{/if}} --}}
+{{!-- 
+<MapboxOn
+  @map={{map}}
+  @event='click'
+  as |click|
+>
+  {{#if click.lngLat}}
+    {{#map.popup
+      initOptions=(hash
+        closeOnClick=false
+      )
+      lngLat=click.lngLat
+      as |popup|
+    }}
+      Hi {{click.lngLat.lng}} {{click.lngLat.lat}}
+    {{/map.popup}}
+  {{/if}}
+</MapboxOn> --}}

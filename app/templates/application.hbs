@@ -7,6 +7,7 @@
 
 <MapboxGl
   @initOptions={{hash hash=true}}
+  @mapLoaded={{this.onLoad}}
   class='map-container' as |map|
 >
   <CompositeLayer

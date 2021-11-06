@@ -35,6 +35,7 @@ export default {
     paint: {
       'line-color': 'black',
       'line-width': EXISTING_TRAILS_PAINT['line-width'] + 3,
+      'line-opacity': 0.5,
       'line-dasharray': [1, 1],
     },
   },
