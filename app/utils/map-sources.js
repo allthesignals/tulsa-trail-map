@@ -12,6 +12,14 @@ export default {
     type: 'geojson',
     data: 'https://services2.arcgis.com/Yl3gDnSPJVdpCPgG/ArcGIS/rest/services/Trail_Closing_and_Detours/FeatureServer/0/query?f=geojson&where=1=1&outField=OBJECTID,Name,ReOpen',
   },
+  'undocumented-closed-trails': {
+    type: 'geojson',
+    data: '/data/undocumented-closed.geojson',
+  },
+  'undocumented-detours': {
+    type: 'geojson',
+    data: '/data/undocumented-detours.geojson',
+  },
   detours: {
     type: 'geojson',
     data: 'https://services2.arcgis.com/Yl3gDnSPJVdpCPgG/ArcGIS/rest/services/Trail_Closing_and_Detours/FeatureServer/1/query?f=geojson&where=1=1&outFields=OBJECTID',

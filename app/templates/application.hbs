@@ -27,7 +27,19 @@
 
     <CompositeLayer
       @map={{map}}
+      @sourceId='undocumented-closed-trails'
+      @layerId='closed-trails'
+    />
+
+    <CompositeLayer
+      @map={{map}}
       @sourceId='detours'
+    />
+
+    <CompositeLayer
+      @map={{map}}
+      @sourceId='undocumented-detours'
+      @layerId='detours'
     />
 
     <trails.source.layer
