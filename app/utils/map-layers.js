@@ -23,6 +23,19 @@ export default {
       ...EXISTING_TRAILS_PAINT,
     },
   },
+  'existing-trails-labels': {
+    type: 'symbol',
+    paint: {
+      'text-halo-color': 'white',
+      'text-halo-width': 2,
+    },
+    layout: {
+      'symbol-placement': 'line-center',
+      'text-field': ['get', 'NAME'],
+      'text-size': 12,
+      'icon-allow-overlap': true,
+    },
+  },
   'proposed-trails': {
     type: 'line',
     paint: {

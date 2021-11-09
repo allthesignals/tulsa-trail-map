@@ -19,15 +19,19 @@
       <h3>{{feature.properties.NAME}}</h3>
       <span>{{feature.properties.TYPE}}</span>
     </trails.tooltip>
+
+    <CompositeLayer
+      @map={{map}}
+      @sourceId='closed-trails'
+    />
+
+    <CompositeLayer
+      @map={{map}}
+      @sourceId='detours'
+    />
+
+    <trails.source.layer
+      @layer={{get-mapbox-layer 'existing-trails-labels'}}
+    />
   </CompositeLayer>
-
-  <CompositeLayer
-    @map={{map}}
-    @sourceId='closed-trails'
-  />
-
-  <CompositeLayer
-    @map={{map}}
-    @sourceId='detours'
-  />
 </MapboxGl>
